@@ -3,6 +3,9 @@ package main;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.swing.plaf.synth.SynthStyle;
 
 public class Helper {
 
@@ -23,5 +26,16 @@ public class Helper {
 		}
 		reader.close();
 		return content.toString();
+	}
+	
+	/**
+	 * print tokens in console
+	 * 
+	 * @param tokens
+	 */
+	public void print_tokens(ArrayList<Token> tokens) {
+		for(Token t:tokens) {
+			System.out.println(t.type+"     "+t.lexeme);
+		}
 	}
 }
