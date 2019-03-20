@@ -1,7 +1,9 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -27,6 +29,24 @@ public class Helper {
 		reader.close();
 		return content.toString();
 	}
+	
+	
+	/**
+	 * Write result tokens to output file 
+	 * 
+	 * @param tokens
+	 * @param filename
+	 * @throws IOException
+	 */
+	public void write_file_content(ArrayList<Token> tokens, String filename) throws IOException{
+		
+		BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+		for(Token t:tokens) {
+			writer.write("<" + t.type + ">:  " + t.lexeme+System.lineSeparator());
+		}
+		writer.close();
+	}
+	
 	
 	/**
 	 * print tokens in console
