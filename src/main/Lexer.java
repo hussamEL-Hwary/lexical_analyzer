@@ -15,6 +15,7 @@ public class Lexer {
 		regexRules.add(new Expression("Email", "(\\w+)@(\\w+\\.)(\\w+)(\\.\\w+)*"));
 	}
 
+	
 	/**
 	 * get tokens
 	 * 
@@ -47,14 +48,17 @@ public class Lexer {
 		return tokens;
 	}
 	
+	
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 		initRules();
 		Helper h = new Helper();
 		String content = h.read_file_content("test.txt");
 		
 		ArrayList<Token> tokens = get_tokens(content);
+		
+		// in case if you want to print tokens
 		h.print_tokens(tokens);
+		h.write_file_content(tokens, "output.txt");
 		
 	}
 
