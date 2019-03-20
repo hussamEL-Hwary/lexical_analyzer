@@ -11,8 +11,8 @@ public class Lexer {
 	 * initialize regexRules with regular expressions
 	 */
 	public static void initRules(){
+		regexRules.add(new Expression("MULTI_COMMENT", "/\\*(.|\\s)*\\*/"));
 		regexRules.add(new Expression("LineComment","(//(.*?)[\r$]?\n)"));
-		regexRules.add(new Expression("Email", "(\\w+)@(\\w+\\.)(\\w+)(\\.\\w+)*"));
 	}
 
 	
