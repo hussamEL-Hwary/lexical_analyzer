@@ -1,6 +1,9 @@
 package main;
 import java.io.IOException;
 import java.util.regex.Pattern;
+
+import javax.xml.crypto.dsig.spec.ExcC14NParameterSpec;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import main.Helper;
@@ -13,6 +16,20 @@ public class Lexer {
 	public static void initRules(){
 		regexRules.add(new Expression("MULTI_COMMENT", "/\\*(.|\\s)*\\*/"));
 		regexRules.add(new Expression("LineComment","(//(.*?)[\r$]?\n)"));
+		regexRules.add(new Expression("NewLine","(\\n)"));
+		regexRules.add(new Expression("LEFT_CURLY_B", "\\}{1}"));
+		regexRules.add(new Expression("RIGHT_CURLY_B", "\\{{1}"));
+		regexRules.add(new Expression("LEFT_SQUARE_B", "\\]{1}"));
+		regexRules.add(new Expression("RIGHT_SQUARE_B", "\\[{1}"));
+		regexRules.add(new Expression("LEFT_ROUND_B", "\\){1}"));
+		regexRules.add(new Expression("RIGHT_ROUND_B", "\\({1}"));
+		regexRules.add(new Expression("COMMA", "\\,{1}"));
+		regexRules.add(new Expression("SEMICOLON", "\\;{1}"));
+		regexRules.add(new Expression("DOT", "\\.{1}"));
+		regexRules.add(new Expression("PREPROCESSOR", "\\#{1}"));
+		regexRules.add(new Expression(" BACKWARD_SLASH", "\\\'{1}"));
+		regexRules.add(new Expression("SINGLE_COMMENT", "\\\\//{1}"));
+		
 	}
 
 	
